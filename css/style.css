@@ -241,8 +241,10 @@ background: linear-gradient(
 .hero-content {
     position: relative;
     z-index: 3;
-    padding: 30px 80px 100px;
+    padding: 20px 80px 100px;   /*wael*/
     max-width: 900px;
+    margin: auto;   /*wael*/
+    text-align: center;   /*wael*/
 }
 
 .hero-tag {
@@ -294,6 +296,9 @@ background: linear-gradient(
     font-weight: 800;
     margin-bottom: 30px;
     /* text-shadow: 0 4px 40px rgba(255, 251, 251, 0.5); */  
+    justify-content: center; /*wael*/
+
+
 }
 
 .hero-location svg {
@@ -318,6 +323,7 @@ background: linear-gradient(
     display: flex;
     gap: 15px;
     align-items: center;
+    padding-top: 320px;  /*wael*/
 }
 
 .btn-hero-primary {
