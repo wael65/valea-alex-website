@@ -1,0 +1,335 @@
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Inter:wght@400;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;600;700;800;900&display=swap');
+        :root {
+            --primary: #1B1B32;
+            --secondary: #E8922D;
+            --dark: #111125;
+            --darker: #0A0A1A;
+            --white: #FFFFFF;
+            --gray: #9CA3AF;
+            --bg-section: #F8F8F6;
+            --text-dark: #1F2937;
+            --text-body: #374151;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            /* font-family: 'Montserrat','Cairo', 'Tajawal', sans-serif; */
+            /* font-family: 'Montserrat', sans-serif; */
+            font-family: 'Noto Naskh Arabic', serif;
+            background: #EEECEA;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+        /* ═══ DOWNLOAD BAR ═══ */
+        .download-bar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+            background: var(--primary); padding: 10px 30px;
+            display: flex; justify-content: center; align-items: center; gap: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid var(--secondary);
+        }
+        .download-bar .bar-label { color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; }
+        .btn-download {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 7px 20px; border: none; border-radius: 8px;
+            font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: 700;
+            cursor: pointer; transition: all 0.3s; text-decoration: none;
+        }
+        .btn-pdf { background: var(--secondary); color: var(--white); }
+        .btn-pdf:hover { background: #D4821F; transform: translateY(-1px); }
+        .btn-word { background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+        .btn-word:hover { background: rgba(255,255,255,0.2); transform: translateY(-1px); }
+        /* body { padding-top: 54px; } */
+
+        /* ═══ FIXED BRAND BAR ═══ */
+        .brand-bar {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            right: 0;
+            z-index: 9998;
+            background: var(--darker);
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(232,146,45,0.2);
+        }
+
+        .brand-bar .brand-year {
+            font-size: 11px;
+            color: var(--gray);
+            letter-spacing: 2px;
+        }
+
+        .report-date {
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ═══ LOGO ═══ */
+        .tatweir-logo { font-family: 'Inter','Cairo',sans-serif; font-weight: 900; color: var(--white); letter-spacing: 5px; text-transform: uppercase; }
+        .tatweir-logo-lg { font-size: 28px; }
+        .tatweir-logo-md { font-size: 16px; }
+        .tatweir-logo-sm { font-size: 14px; }
+
+        /* ═══ COVER ═══ */
+        .cover-page {
+            height: 100vh; display: flex; flex-direction: column;
+            background: linear-gradient(160deg, var(--primary) 0%, var(--darker) 60%, #0D0D20 100%);
+            color: var(--white); text-align: center; position: relative; overflow: hidden;
+            page-break-after: always;
+        }
+        .cover-page::before {
+            content:''; position:absolute; top:-30%; left:-30%; width:160%; height:160%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(232,146,45,0.06) 0%, transparent 60%);
+            pointer-events:none;
+        }
+        .cover-page::after {
+            content:''; position:absolute; bottom:0; left:0; right:0; height:4px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+        }
+        .cover-top-bar { padding:20px 40px; display:flex; justify-content:space-between; align-items:center; flex-shrink:0; }
+        .cover-date { font-size:12px; color:var(--gray); }
+        .cover-main { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:0 40px; }
+        .cover-badge { display:inline-block; padding:5px 20px; border:1px solid rgba(232,146,45,0.3); border-radius:30px; font-size:14px; color:var(--secondary); letter-spacing:2px; margin:20px 0; background:rgba(232,146,45,0.05); }
+        .cover-main-title { font-size:22px; font-weight:400; color:rgba(255,255,255,0.85); margin-bottom:6px; }
+        .cover-project-name { font-size:60px; font-weight:900; color:var(--secondary); letter-spacing:10px; margin:8px 0 4px; text-shadow:0 4px 30px rgba(232,146,45,0.25); font-family:'Inter','Cairo',sans-serif; }
+        .cover-subtitle { font-size:16px; font-weight:400; color:rgba(255,255,255,0.6); margin-bottom:25px; }
+        .cover-line { width:50px; height:2px; background:var(--secondary); margin:0 auto 25px; }
+        .cover-to-box { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:20px 40px; }
+        .cover-to-label { font-size:11px; color:var(--gray); letter-spacing:2px; margin-bottom:4px; }
+        .cover-to-company { font-size:16px; font-weight:700; color:var(--white); margin-bottom:3px; }
+        .cover-to-name { font-size:14px; color:var(--secondary); font-weight:600; }
+        .cover-bottom { padding:20px 40px 30px; text-align:center; flex-shrink:0; border-top:1px solid rgba(255,255,255,0.05); }
+        .cover-bottom .prepared-by { font-size:10px; color:var(--gray); letter-spacing:2px; margin-bottom:4px; }
+        .cover-bottom .author-name { font-size:15px; font-weight:700; color:var(--white); }
+        .cover-bottom .author-contact { font-size:13px; font-weight:600;  color:rgba(255,255,255,0.4)!important; margin-top:2px; direction:ltr; }
+        
+        /* ═══ PAGE ═══ */
+        .page { max-width:210mm; margin:0 auto; padding:0; background:var(--white); box-shadow:0 2px 20px rgba(0,0,0,0.08); }
+        .page-break { page-break-before: always; }
+        .page-header { background:var(--primary); padding:10px 40px; display:flex; justify-content:space-between; align-items:center; }
+        .page-header .doc-title { font-size:12px; color:var(--secondary); font-weight:600; }
+        .page-body { padding:25px 40px 20px; }
+        .page-footer { padding:8px 40px; background:var(--bg-section); display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--gray); border-top:1px solid #EEEEE9; }
+
+        /* ═══ SECTIONS ═══ */
+        .section-number { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; background:var(--secondary); color:var(--white); border-radius:8px; font-size:16px; font-weight:800; margin-left:10px; flex-shrink:0; }
+        .section-title { display:flex; align-items:center; margin-bottom:6px; }
+        .section-title h2 { font-size:20px; font-weight:800; color:var(--primary); }
+        .section-desc { font-size:14px; color:var(--gray); margin-bottom:18px; padding-right:44px; line-height:1.8; }
+        .section-cont-label { font-size:12px; color:var(--secondary); margin-bottom:14px; font-weight:700; padding-bottom:6px; border-bottom:2px solid rgba(232,146,45,0.15); display:inline-block; }
+
+        /* ═══ CARDS ═══ */
+        .card { background:var(--white); border-radius:10px; padding:14px 18px; margin-bottom:12px; border:1px solid #EEEEE9; border-right:4px solid var(--secondary); }
+        .card-header { display:flex; align-items:center; margin-bottom:8px; }
+        .card-icon { width:32px; height:32px; background:var(--primary); border-radius:8px; display:flex; align-items:center; justify-content:center; margin-left:10px; font-size:15px; flex-shrink:0; }
+        .card-title { font-size:14px; font-weight:700; color:var(--primary); }
+        .card-body { padding-right:42px; }
+        .card-table { width:100%; border-collapse:collapse; }
+        .card-table tr { border-bottom:1px solid #F3F4F6; }
+        .card-table tr:last-child { border-bottom:none; }
+        .card-table td { padding:5px 4px; vertical-align:top; font-size:16px; }
+        .card-table td:first-child { font-weight:700; color:var(--primary); width:110px; white-space:nowrap; }
+        .card-table td:last-child { color:var(--text-body); }
+
+        /* ═══ TOC ═══ */
+        .toc { padding:15px 0; }
+        .toc h2 { font-size:20px; font-weight:800; color:var(--primary); margin-bottom:18px; text-align:center; }
+        .toc-item { display:flex; align-items:center; padding:10px 15px; border-bottom:1px dashed #E5E7EB; }
+        .toc-item .toc-num { width:28px; height:28px; background:var(--primary); color:var(--white); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; margin-left:12px; flex-shrink:0; }
+        .toc-item .toc-num.toc-dash { background:var(--secondary); }
+        .toc-item .toc-text { font-size:16px; font-weight:600; color:var(--text-dark); }
+
+        /* ═══ INTRO ═══ */
+        .intro-text { font-size:16px; color:var(--text-body); line-height:1.9; margin:18px 0 20px; padding:18px 22px; background:var(--bg-section); border-radius:10px; border-right:4px solid var(--secondary); }
+        .highlight { color:var(--secondary); font-weight:700; }
+        .text-primary { color:var(--primary); font-weight:700; }
+
+        /* ═══ CHANNELS ═══ */
+        .channel-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
+        .channel-card { background:var(--white); border:1px solid #EEEEE9; border-radius:10px; padding:14px; position:relative; overflow:hidden; }
+        .channel-card::before { content:''; position:absolute; top:0; right:0; left:0; height:3px; background:var(--secondary); }
+        .channel-card .ch-number { position:absolute; top:10px; left:10px; width:22px; height:22px; background:var(--primary); color:var(--white); border-radius:5px; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; }
+        .channel-card h4 { font-size:16px; font-weight:700; color:var(--primary); margin-bottom:5px; padding-top:2px; }
+        .channel-card p { font-size:14px; color:var(--text-body); line-height:1.6; margin-bottom:6px; }
+        .channel-card .ch-tag { font-size:12px; color:var(--secondary); font-weight:700; background:rgba(232,146,45,0.08); padding:3px 8px; border-radius:15px; display:inline-block; }
+        .channel-card-full { grid-column:1/-1; }
+        .sm-note { background:rgba(27,27,50,0.04); border:1px dashed var(--primary); border-radius:6px; padding:8px 12px; margin-top:6px; }
+        .sm-note p { font-size:13px; color:var(--primary); font-weight:600; margin:0; }
+
+        /* ═══ REQ TABLE ═══ */
+        .req-table { width:100%; border-collapse:collapse; margin-top:10px; margin-bottom:12px; border-radius:8px; overflow:hidden; }
+        .req-table thead th { background:var(--primary); color:var(--white); padding:8px 10px; font-size:11px; font-weight:700; text-align:right; }
+        .req-table tbody td { padding:8px 10px; border-bottom:1px solid #F3F4F6; font-size:14px; vertical-align:top; }
+        .req-table tbody tr:nth-child(even) { background:var(--bg-section); }
+        .req-table tbody tr:last-child td { border-bottom:none; }
+        .req-num { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; background:var(--secondary); color:var(--white); border-radius:5px; font-size:10px; font-weight:700; }
+
+        /* ═══ SUMMARY ═══ */
+        .summary-box { background:var(--primary); color:var(--white); border-radius:10px; padding:18px 22px; margin:14px 0; }
+        .summary-box h4 { font-size:16px; font-weight:700; color:var(--secondary); margin-bottom:10px; }
+        .summary-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+        .summary-item { display:flex; align-items:center; gap:8px; font-size:14px; padding:3px 0; }
+        .summary-item .dot { width:6px; height:6px; background:var(--secondary); border-radius:50%; flex-shrink:0; }
+
+        /* ═══ NOTE ═══ */
+        .note-box { background:rgba(232,146,45,0.06); border-radius:10px; padding:14px 18px; margin:12px 0; border-right:4px solid var(--secondary); }
+        .note-box .note-title { font-size:16px; font-weight:700; color:var(--primary); margin-bottom:5px; }
+        .note-box p { font-size:14px; color:var(--text-body); line-height:1.7; }
+        .note-box ul { list-style:none; padding:0; margin-top:5px; }
+        .note-box ul li { font-size:14px; color:var(--text-body); padding:2px 0; padding-right:18px; position:relative; }
+        .note-box ul li::before { content:'✕'; position:absolute; right:0; color:#DC2626; font-weight:700; font-size:10px; }
+
+        /* ═══ ROADMAP ═══ */
+        .roadmap { position:relative; padding-right:30px; margin:15px 0; }
+        .roadmap::before { content:''; position:absolute; right:12px; top:0; bottom:0; width:2px; background:linear-gradient(180deg, var(--secondary), var(--primary)); }
+        .roadmap-item { position:relative; padding:12px 16px; margin-bottom:10px; background:var(--bg-section); border-radius:10px; border:1px solid #EEEEE9; }
+        .roadmap-item::before { content:''; position:absolute; right:-24px; top:16px; width:12px; height:12px; background:var(--secondary); border-radius:50%; border:2px solid var(--white); box-shadow:0 0 0 2px var(--secondary); }
+        .roadmap-item.active { background:var(--primary); border-color:var(--primary); }
+        .roadmap-item.active::before { background:var(--white); box-shadow:0 0 0 2px var(--secondary); }
+        .roadmap-item .phase { font-size:13px; font-weight:700; color:var(--secondary); margin-bottom:2px; letter-spacing:1px; }
+        .roadmap-item h4 { font-size:15px; font-weight:700; color:var(--primary); margin-bottom:3px; }
+        .roadmap-item.active h4 { color:var(--white); }
+        .roadmap-item p { font-size:14px; color:var(--text-body); line-height:1.6; }
+        .roadmap-item.active p { color:rgba(255,255,255,0.65); }
+
+        /* ═══ CLOSING ═══ */
+        .closing-section { text-align:center; padding:25px 20px 10px; margin-top:15px; }
+        .closing-line { width:40px; height:2px; background:var(--secondary); margin:0 auto 12px; border-radius:2px; }
+        .closing-section h3 { font-size:16px; font-weight:800; color:var(--primary); margin-bottom:10px; }
+        .closing-section p { font-size:14px; color:var(--text-body); line-height:1.9; max-width:500px; margin:0 auto; }
+        .contact-box { display:inline-flex; flex-direction:column; align-items:center; background:var(--primary); border-radius:12px; padding:18px 45px; margin-top:15px; }
+        .contact-box .name { font-size:16px; font-weight:700; color:var(--secondary); margin-top:8px; }
+        .contact-box .phone { font-size:13px; font-weight:600; color:rgba(255,255,255,0.6); margin:3px 0; direction:ltr; }
+        .contact-box .web { font-size:14px; color:rgba(255,255,255,0.4); }
+
+        .sub-heading { font-size:14px; font-weight:700; color:var(--primary); margin:14px 0 8px; display:flex; align-items:center; gap:6px; }
+        .sub-heading::before { content:''; width:3px; height:16px; background:var(--secondary); border-radius:3px; flex-shrink:0; }
+
+        /* ═══════════════════════════════════════ */
+        /*              PRINT / PDF                */
+        /* ═══════════════════════════════════════ */
+        @media print {
+            body { background:white !important; padding-top:0 !important; font-size:14px; }
+            .download-bar { display:none !important; }
+            .page { box-shadow:none !important; max-width:100% !important; }
+
+            /* Compact everything for print */
+            .page-body { padding:20px 30px 15px !important; }
+            .page-header { padding:8px 30px !important; }
+            .page-footer { padding:6px 30px !important; margin-top:auto !important; }
+
+            .section-title h2 { font-size:18px !important; }
+            .section-number { width:28px !important; height:28px !important; font-size:14px !important; }
+            .section-desc { font-size:14px !important; margin-bottom:12px !important; }
+
+            .card { padding:10px 14px !important; margin-bottom:8px !important; }
+            .card-title { font-size:14px !important; }
+            .card-icon { width:26px !important; height:26px !important; font-size:14px !important; }
+            .card-body { padding-right:36px !important; }
+            .card-table td { padding:3px 3px !important; font-size:14px !important; }
+            .card-table td:first-child { width:95px !important; }
+            .card-header { margin-bottom:6px !important; }
+
+            .channel-card { padding:10px !important; }
+            .channel-card h4 { font-size:14px !important; }
+            .channel-card p { font-size:14px !important; line-height:1.5 !important; margin-bottom:4px !important; }
+            .channel-card .ch-tag { font-size:14px !important; padding:2px 6px !important; }
+            .channel-card .ch-number { width:18px !important; height:18px !important; font-size:12px !important; top:8px !important; left:8px !important; }
+            .sm-note { padding:6px 8px !important; margin-top:4px !important; }
+            .sm-note p { font-size:14px !important; }
+
+            .req-table thead th { padding:6px 8px !important; font-size:14px !important; }
+            .req-table tbody td { padding:6px 8px !important; font-size:14px !important; }
+            .req-num { width:18px !important; height:18px !important; font-size:14px !important; }
+
+            .note-box { padding:10px 14px !important; margin:8px 0 !important; }
+            .note-box .note-title { font-size:14px !important; }
+            .note-box p { font-size:14px !important; }
+            .note-box ul li { font-size:14px !important; padding:1px 0 !important; padding-right:15px !important; }
+
+            .summary-box { padding:12px 16px !important; margin:10px 0 !important; }
+            .summary-box h4 { font-size:14px !important; margin-bottom:6px !important; }
+            .summary-item { font-size:14px !important; }
+
+            .roadmap { padding-right:25px !important; margin:10px 0 !important; }
+            .roadmap-item { padding:10px 14px !important; margin-bottom:6px !important; }
+            .roadmap-item .phase { font-size:14px !important; }
+            .roadmap-item h4 { font-size:14px !important; }
+            .roadmap-item p { font-size:14px !important; }
+            .roadmap-item::before { right:-20px !important; width:10px !important; height:10px !important; top:14px !important; }
+
+            .closing-section { padding:15px 15px 5px !important; margin-top:10px !important; }
+            .closing-section h3 { font-size:14px !important; margin-bottom:6px !important; }
+            .closing-section p { font-size:14px !important; line-height:1.7 !important; }
+            .contact-box { padding:14px 35px !important; margin-top:10px !important; }
+
+            .toc h2 { font-size:18px !important; margin-bottom:14px !important; }
+            .toc-item { padding:8px 12px !important; }
+            .toc-item .toc-num { width:24px !important; height:24px !important; font-size:14px !important; }
+            .toc-item .toc-text { font-size:14px !important; }
+
+            .intro-text { padding:14px 18px !important; font-size:14px !important; margin:14px 0 !important; }
+            .sub-heading { font-size:14px !important; margin:10px 0 6px !important; }
+            .section-cont-label { font-size:14px !important; margin-bottom:10px !important; }
+
+            /* ——— LIGHT COVER ——— */
+            .cover-page { background:var(--white) !important; color:var(--primary) !important; border:2px solid var(--primary); }
+            .cover-page::before, .cover-page::after { display:none !important; }
+            .cover-top-bar .tatweir-logo { color:var(--primary) !important; }
+            .cover-date { color:var(--gray) !important; }
+            .cover-badge { border-color:var(--secondary) !important; color:var(--secondary) !important; background:rgba(232,146,45,0.05) !important; }
+            .cover-main-title { color:var(--primary) !important; }
+            .cover-project-name { color:var(--secondary) !important; text-shadow:none !important; }
+            .cover-subtitle { color:var(--gray) !important; }
+            .cover-to-box { background:var(--bg-section) !important; border:1px solid #E5E7EB !important; }
+            .cover-to-label { color:var(--gray) !important; }
+            .cover-to-company { color:var(--primary) !important; }
+            .cover-to-name { color:var(--secondary) !important; }
+            .cover-bottom { border-top:1px solid #E5E7EB !important; }
+            .cover-bottom .prepared-by { color:var(--gray) !important; }
+            .cover-bottom .author-name { color:var(--primary) !important; }
+            .cover-bottom .author-contact { color:var(--gray) !important; }
+
+            .page-header { background:var(--white) !important; border-bottom:2px solid var(--primary) !important; }
+            .page-header .tatweir-logo { color:var(--primary) !important; }
+
+            .summary-box { background:var(--bg-section) !important; color:var(--text-dark) !important; border:1px solid #E5E7EB !important; }
+            .summary-box h4 { color:var(--secondary) !important; }
+            .summary-item { color:var(--text-dark) !important; }
+
+            .roadmap-item.active { background:var(--bg-section) !important; border-color:var(--secondary) !important; }
+            .roadmap-item.active h4 { color:var(--primary) !important; }
+            .roadmap-item.active p { color:var(--text-body) !important; }
+
+            .contact-box { background:var(--bg-section) !important; border:1px solid #E5E7EB !important; }
+            .contact-box .tatweir-logo { color:var(--primary) !important; }
+            .contact-box .name { color:var(--secondary) !important; }
+            .contact-box .phone { color:var(--text-body) !important; }
+            .contact-box .web { color:var(--gray) !important; }
+
+            .card-icon { background:var(--bg-section) !important; }
+            .channel-card .ch-number { background:var(--secondary) !important; }
+            .req-table thead th { background:var(--bg-section) !important; color:var(--primary) !important; border-bottom:2px solid var(--primary) !important; }
+
+            /* ——— PAGE BREAK CONTROL ——— */
+            .card { break-inside: avoid !important; }
+            .channel-card { break-inside: avoid !important; }
+            .roadmap-item { break-inside: avoid !important; }
+            .note-box { break-inside: avoid !important; }
+            .summary-box { break-inside: avoid !important; }
+            .closing-section { break-inside: avoid !important; }
+            .req-table { break-inside: avoid !important; }
+
+            /* ——— FIXED BRAND BAR ——— */
+            .brand-bar { display: none !important; }
+        }
+  
