@@ -1280,6 +1280,7 @@ background: linear-gradient(
 .contact-item-value {
     font-size: 14px;
     color: var(--white);
+     direction: ltr;
 }
 
 .contact-item-value a {
