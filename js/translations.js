@@ -69,7 +69,7 @@ const translations = {
         'مناطق هادئة',
         'النافورة',
         'حمام السباحة',
-        'وونيرف',
+        'تصميم شوارع صديقة للمشاة Woonerf',
         'مخرج خاضع للتحكم',
         'مدخل الجراجات'
       ]
@@ -209,7 +209,7 @@ const translations = {
         'Quiet Zones',
         'Fountain',
         'Swimming Pool',
-        'Wonerf',
+        'Woonerf Design',
         'Controlled Exit',
         'Garage Entrance'
       ]
