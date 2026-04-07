@@ -1,158 +1,173 @@
-// سكريبت إدارة اللغات والتبديل - script.js
-
 class LanguageManager {
-  constructor() {
-    this.currentLang = localStorage.getItem('language') || 'ar';
-    this.init();
-  }
-
-  init() {
-    // تعيين اللغة الحالية
-    this.setLanguage(this.currentLang);
-
-    // تفعيل الاستماع لزر التبديل
-    const langToggle = document.getElementById('langToggle');
-    if (langToggle) {
-      langToggle.addEventListener('click', () => this.toggleLanguage());
+    constructor() {
+        this.currentLang = localStorage.getItem("language") || "ar";
+        this.init();
     }
-  }
 
-  setLanguage(lang) {
-    this.currentLang = lang;
-    localStorage.setItem('language', lang);
+    init() {
+        this.setLanguage(this.currentLang);
 
-    // تغيير اتجاه الصفحة
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.body.classList.toggle('lang-en', lang === 'en');
-
-    // تحديث زر التبديل
-    this.updateToggleButton();
-
-    // تحديث جميع النصوص
-    this.updatePageText();
-  }
-
-  toggleLanguage() {
-    const nextLang = this.currentLang === 'ar' ? 'en' : 'ar';
-    this.setLanguage(nextLang);
-  }
-
-  updateToggleButton() {
-    const toggle = document.getElementById('langToggle');
-    if (toggle) {
-      // الزر الديناميكي (يتغير حسب اللغة الحالية)
-      toggle.textContent = this.currentLang === 'ar' ? 'EN' : 'AR';
-
-      // أو إذا أردت الزر الثابت (يعرض EN دائماً)
-      // toggle.textContent = 'EN';
+        const langToggle = document.getElementById("langToggle");
+        if (langToggle) {
+            langToggle.addEventListener("click", () => this.toggleLanguage());
+        }
     }
-  }
 
-  updatePageText() {
-    // تحديث جميع العناصر التي لها data-i18n attribute
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-      const key = element.getAttribute('data-i18n');
-      element.textContent = t(key, this.currentLang);
-    });
+    setLanguage(lang) {
+        this.currentLang = lang;
+        localStorage.setItem("language", lang);
 
-    // تحديث placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-      const key = element.getAttribute('data-i18n-placeholder');
-      element.placeholder = t(key, this.currentLang);
-    });
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
-    // تحديث data-i18n-html (للنصوص الغنية بـ HTML)
-    document.querySelectorAll('[data-i18n-html]').forEach(element => {
-      const key = element.getAttribute('data-i18n-html');
-      element.innerHTML = t(key, this.currentLang);
-    });
-  }
+        this.updateToggleButton();
+        this.updatePageText();
+    }
+
+    toggleLanguage() {
+        const nextLang = this.currentLang === "ar" ? "en" : "ar";
+        this.setLanguage(nextLang);
+    }
+
+    updateToggleButton() {
+        const toggle = document.getElementById("langToggle");
+        if (toggle) {
+            toggle.textContent = this.currentLang === "ar" ? "EN" : "AR";
+        }
+    }
+
+    updatePageText() {
+        document.querySelectorAll("[data-i18n]").forEach(element => {
+            const key = element.getAttribute("data-i18n");
+            const translated = t(key, this.currentLang);
+
+            if (translated !== key) {
+                element.textContent = translated;
+            }
+        });
+
+        document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
+            const key = element.getAttribute("data-i18n-placeholder");
+            const translated = t(key, this.currentLang);
+
+            if (translated !== key) {
+                element.setAttribute("placeholder", translated);
+            }
+        });
+
+        document.querySelectorAll("[data-i18n-html]").forEach(element => {
+            const key = element.getAttribute("data-i18n-html");
+            const translated = t(key, this.currentLang);
+
+            if (translated !== key) {
+                element.innerHTML = translated;
+            }
+        });
+
+        this.updateDocumentTitle();
+    }
+
+    updateDocumentTitle() {
+        if (this.currentLang === "ar") {
+            document.title = "Valea";
+        } else {
+            document.title = "Valea";
+        }
+    }
 }
 
-// بدء تشغيل Language Manager عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', () => {
-  new LanguageManager();
-});
-
-// دالة لتحريك السلايدر (Facilities)
 function slideFacilities(direction) {
-  const slider = document.getElementById('facilitiesSlider');
-  if (slider) {
-    const cardWidth = slider.querySelector('.facility-card')?.offsetWidth || 300;
+    const slider = document.getElementById("facilitiesSlider");
+    if (!slider) return;
+
+    const firstCard = slider.querySelector(".facility-card");
+    const cardWidth = firstCard ? firstCard.offsetWidth : 300;
     const gap = 25;
     const scrollAmount = cardWidth + gap;
-    
-    if (direction === 'next') {
-      slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+
+    if (direction === "next") {
+        slider.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth"
+        });
     } else {
-      slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        slider.scrollBy({
+            left: -scrollAmount,
+            behavior: "smooth"
+        });
     }
-  }
 }
 
-// التعامل مع فورم التواصل
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      
-      console.log('Form Data:', data);
-      alert(t('contact.form.submit', document.documentElement.lang) + ' ✓');
-      form.reset();
+function initNavbarScroll() {
+    const navbar = document.getElementById("navbar");
+    if (!navbar) return;
+
+    window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
     });
-  }
-});
-
-// تسهيل الـ Navbar على الأجهزة الصغيرة
-function toggleMobileMenu() {
-  const navLinks = document.querySelector('.nav-links');
-  if (navLinks) {
-    navLinks.classList.toggle('active');
-  }
 }
 
-// Smooth scroll للروابط الداخلية
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (href !== '#') {
+function initMobileMenu() {
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    if (!mobileMenuBtn || !navLinks) return;
+
+    mobileMenuBtn.addEventListener("click", () => {
+        mobileMenuBtn.classList.toggle("active");
+        navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenuBtn.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
+    });
+}
+
+function initContactForm() {
+    const contactForm = document.getElementById("contactForm");
+    if (!contactForm) return;
+
+    contactForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
+
+        const currentLang = document.documentElement.lang || "ar";
+
+        alert(
+            currentLang === "ar"
+                ? "شكراً لتواصلك معنا! سيتم التواصل معك قريباً."
+                : "Thank you for contacting us! We will contact you soon."
+        );
+
+        contactForm.reset();
     });
-  });
+}
+
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            const targetId = this.getAttribute("href");
+            const target = document.querySelector(targetId);
+
+            if (target) {
+                e.preventDefault();
+                const offsetTop = target.offsetTop - 70;
+
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    new LanguageManager();
+    initNavbarScroll();
+    initMobileMenu();
+    initContactForm();
+    initSmoothScroll();
 });
-
-// إضافة scroll effect للـ Navbar
-window.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
-  if (navbar) {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  }
-});
-
-
- function slideFacilities(direction) {
-        const slider = document.getElementById('facilitiesSlider');
-        const scrollAmount = 325;
-
-        if (direction === 'next') {
-            slider.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
-        } else {
-            slider.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    }
