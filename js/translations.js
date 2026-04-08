@@ -8,7 +8,7 @@ const translations = {
             facilities: "الخدمات",
             contact: "تواصل معنا",
             bookNow: "احجز الآن",
-            phone: "+20 100 000 0000"
+            phone: "+201270377136"
         },
 
         hero: {
@@ -125,6 +125,7 @@ const translations = {
             },
             contactDetails: {
                 phone: "رقم التليفون",
+                tel: "+201270377136",
                 whatsapp: "الواتساب",
                 email: "البريد الإلكتروني",
                 address: "عنوان الشركة"
@@ -141,7 +142,7 @@ const translations = {
             facilities: "Services",
             contact: "Contact Us",
             bookNow: "Book Now",
-            phone: "+20 100 000 0000"
+            phone: "+201270377136"
         },
 
         hero: {
@@ -258,6 +259,7 @@ const translations = {
             },
             contactDetails: {
                 phone: "Phone",
+                tel: "+201270377136",
                 whatsapp: "WhatsApp",
                 email: "Email",
                 address: "Company Address"
