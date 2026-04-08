@@ -1,0 +1,37 @@
+ <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" data-i18n="contact.form.name">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" data-i18n-placeholder="contact.form.name" placeholder="الاسم الكامل" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" data-i18n="contact.form.phone">رقم الهاتف</label>
+                        <input type="phone" id="phone" name="phone" data-i18n-placeholder="contact.form.phone" placeholder="رقم الهاتف" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" data-i18n="contact.form.email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" data-i18n-placeholder="contact.form.email" placeholder="البريد الإلكتروني" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="unitType" data-i18n="contact.form.interest">نوع الوحدة المطلوبة</label>
+                    <select name="interest" id="unitType" required>
+                        <option value="" disabled selected data-i18n="contact.form.selectPlaceholder">اختر نوع الوحدة</option>
+                        <option value="apartment" data-i18n="contact.form.options.apartment">شقة</option>
+                        <option value="duplex" data-i18n="contact.form.options.duplex">دوبلكس</option>
+                        <option value="penthouse" data-i18n="contact.form.options.penthouse">روف</option>
+                        <option value="other" data-i18n="contact.form.options.other">أخرى</option>
+                    </select>
+                </div>
+
+                <div class="form-group full">
+                    <label for="message" data-i18n="contact.form.message">رسالتك</label>
+                    <textarea id="message" name="message" data-i18n-placeholder="contact.form.message" placeholder="رسالتك أو استفسارك..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit" data-i18n="contact.form.submit">إرسال الطلب</button>
+            </form>
+

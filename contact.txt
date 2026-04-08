@@ -1,0 +1,64 @@
+const translations = {
+    ar: {
+        contact: {
+            title: "هل تود أن تعرف المزيد؟",
+            subtitle: "يرجى ملء النموذج وسيتواصل معك أحد ممثلين فريق المبيعات في أقرب وقت",
+            form: {
+                name: "الاسم الكامل",
+                phone: "رقم الهاتف",
+                email: "البريد الإلكتروني",
+                interest: "نوع الوحدة المطلوبة",
+                message: "رسالتك أو استفسارك...",
+                submit: "إرسال الطلب",
+                selectPlaceholder: "اختر نوع الوحدة",
+                options: {
+                    apartment: "شقة",
+                    duplex: "دوبلكس",
+                    penthouse: "بنتهاوس",
+                    other: "أخرى"
+                }
+            }
+        },
+
+    },
+
+    en: {
+        contact: {
+            title: "Would You Like to Know More?",
+            subtitle: "Please fill out the form and one of our Sales Team representatives will get in touch with you shortly.",
+            form: {
+                name: "Full Name",
+                phone: "Phone Number",
+                email: "Email Address",
+                interest: "Preferred Unit Type",
+                message: "Your Message or Inquiry...",
+                submit: "Submit Request",
+                selectPlaceholder: "Select unit type",
+                options: {
+                    apartment: "Apartment",
+                    duplex: "Duplex",
+                    penthouse: "Penthouse",
+                    other: "Other"
+                }
+            }
+        },
+
+        
+    }
+};
+
+function t(key, lang = null) {
+    const currentLang = lang || document.documentElement.lang || "ar";
+    const keys = key.split(".");
+    let value = translations[currentLang];
+
+    for (let k of keys) {
+        if (value && typeof value === "object" && k in value) {
+            value = value[k];
+        } else {
+            return key;
+        }
+    }
+
+    return value;
+}            

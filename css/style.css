@@ -79,6 +79,7 @@ body {
     color: var(--gray);
     text-decoration: none;
     font-size: 13px;
+    direction: ltr;
 }
 
 .lang-toggle {
@@ -197,6 +198,7 @@ body {
     object-fit: cover;
     object-position: center;
 }
+.community-brand-mobile,
 .hero-image-mobile { display: none; }
 
 .hero-overlay {
@@ -941,6 +943,14 @@ body {
         height: 400px;
         object-fit: cover;
     }
+    
+    .community-brand-mobile { 
+        display: block;
+        width: 250px;
+        padding-top: 10px;
+        margin: auto;
+    }
+
 
     .hero-project-name {
         font-size: 48px;

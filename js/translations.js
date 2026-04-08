@@ -8,7 +8,7 @@ const translations = {
             facilities: "الخدمات",
             contact: "تواصل معنا",
             bookNow: "احجز الآن",
-            phone: "+201270377136"
+            phone: "+20 127 037 7136"
         },
 
         hero: {
@@ -63,7 +63,7 @@ const translations = {
                 "مناطق هادئة",
                 "النافورة",
                 "حمام السباحة",
-                "وونيرف",
+                'تصميم شوارع صديقة للمشاة Woonerf',
                 "مخرج خاضع للتحكم",
                 "مدخل الجراجات"
             ]
@@ -142,7 +142,7 @@ const translations = {
             facilities: "Services",
             contact: "Contact Us",
             bookNow: "Book Now",
-            phone: "+201270377136"
+            phone: "+20 127 037 7136"
         },
 
         hero: {
